@@ -20,5 +20,17 @@ def predict_news_distilbert(text):
 
     probs = torch.softmax(outputs.logits, dim=1)
 
-    fake_prob = probs
+    fake_prob = probs[0][0].item()
+    real_prob = probs[0][1].item()
+
+    confidence = max(fake_prob,real_prob)
+
+    if confidence < 0.60:
+        label = "UNCERTAIN"
+    elif fake_prob > real_prob:
+        label = "FAKE"
+    else:
+        label = "REAL"
+    
+    return label, confidence
 
