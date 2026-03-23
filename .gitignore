@@ -36,6 +36,8 @@ checkpoints/
 *.pth
 *.ckpt
 *.sav
+*.safetensors
+*.bin
 
 # ==============================
 # Logs & outputs
