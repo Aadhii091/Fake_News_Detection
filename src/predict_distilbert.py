@@ -32,5 +32,5 @@ def predict_news_distilbert(text):
     else:
         label = "REAL"
     
-    return label, confidence
+    return {"label": label, "confidence": confidence}
 
