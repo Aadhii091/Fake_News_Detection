@@ -1,6 +1,6 @@
 import time
 import streamlit as st
-from src.predict_distilbert import predict_news_distilbert
+from src.predict import hybrid_predict
 
 st.set_page_config(
     page_title="Fake News Intelligence System",
@@ -8,8 +8,8 @@ st.set_page_config(
     layout="centered"
 )
 
-st.title("🧠 Fake News Detection System")
-st.write("AI powered verification using DistilBERT")
+st.title("🧠 Hybrid Fake News Detection System")
+st.write("AI powered verification using DistilBERT and SVM models")
 
 news_text = st.text_area(
     "Paste News Article / Headline",
@@ -18,8 +18,10 @@ news_text = st.text_area(
 
 st.sidebar.title("About System")
 st.sidebar.write(
-"""AI architecture:
+"""
+Hybrid AI architecture:
 
+• Fast TF-IDF SVM filter  
 • Deep DistilBERT semantic verifier  
 • Confidence-aware decision  
 
@@ -34,13 +36,13 @@ if st.button("Detect News Authenticity"):
     else:
         with st.spinner("Analyzing news..."):
             time.sleep(1)
-            result = predict_news_distilbert(news_text)
+            result = hybrid_predict(news_text)
 
         st.subheader("Prediction Result")
 
-        if result["label"] == "FAKE":
+        if result["prediction"] == "FAKE":
             st.error("🚨 This news is likely FAKE")
-        elif result["label"] == "REAL":
+        elif result["prediction"] == "REAL":
             st.success("✅ This news appears REAL")
         else:
             st.warning("⚠️ News authenticity UNCERTAIN")
@@ -48,4 +50,6 @@ if st.button("Detect News Authenticity"):
         if "confidence" in result:
             st.write(f"Confidence Score: {result['confidence']:.2f}")
             st.progress(result["confidence"])
+
+        st.caption(f"Decision Model : {result['model'].upper()}")
             
