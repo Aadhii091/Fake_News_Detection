@@ -65,21 +65,17 @@ fake_news_detection/
 │   ├── 01_eda.ipynb
 │   ├── 02_preprocessing.ipynb
 │   ├── 03_svm_baseline.ipynb
-│   ├── 06_distilbert_training.ipynb
+│   ├── 04_distilbert_training.ipynb
 │
 ├── src/
 │   ├── preprocess.py
 │   ├── predict.py
-│   ├── predict_transformer.py
-│   ├── predict_hybrid.py
+│   ├── predict_distilbert.py
 │
 ├── models/
 │   ├── svm_model.pkl
 │   ├── tfidf_vectorizer.pkl
 │   ├── distilbert_model/
-│
-├── app/
-│   ├── api.py
 │
 ├── streamlit_app.py
 ├── requirements.txt
@@ -118,7 +114,7 @@ fake_news_detection/
 ## ⚙️ Installation
 
 ```bash
-git clone https://github.com/your-username/fake-news-detection.git
+git clone "https://github.com/Aadhii091/Fake_News_Detection.git"
 cd fake-news-detection
 
 python -m venv venv
@@ -133,14 +129,6 @@ pip install -r requirements.txt
 
 ```bash
 streamlit run streamlit_app.py
-```
-
----
-
-## 🌐 Run FastAPI (Optional)
-
-```bash
-uvicorn app.api:app --reload
 ```
 
 ---
