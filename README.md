@@ -180,16 +180,3 @@ Model Used: DistilBERT
 * 🤖 LLM-based reasoning layer
 * ☁️ Cloud deployment (Streamlit Cloud / AWS)
 * 📊 Monitoring & feedback loop (MLOps)
-
----
-
-## 👤 Author
-
-**Your Name**
-
-* GitHub: https://github.com/your-username
-* LinkedIn: https://linkedin.com/in/your-profile
-
----
-
-## ⭐ If you found this project useful, consider giving it a star!
